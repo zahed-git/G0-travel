@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 
 
 const AddSpot =()=>{
+    
 const handleAddData =(e)=>{
 e.preventDefault()
 const tourists_spot_name = e.target.name.value;
