@@ -7,7 +7,7 @@ const Detail = () => {
     // const spotData=useLoaderData()
     const { _id } = useParams()
     const [spotData, setSpotData] = useState({})
-    const navigate= useNavigate()
+    const navigate = useNavigate()
     // console.log(_id)
 
     const { image, tourists_spot_name, country_Name, location, description, averageCost, seasonality, travel_Time, total_Visitors_Per_Year } = spotData || {}
@@ -37,10 +37,10 @@ const Detail = () => {
                                 title: "Deleted!",
                                 text: "Location has been deleted.",
                                 icon: "success"
-                               
+
 
                             });
-                            
+
                         }
                     })
 
@@ -125,7 +125,8 @@ const Detail = () => {
                     <div className="card-actions justify-start">
                         <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
                         <Link to={`/update/${_id}`}><button className="btn btn-primary">Update</button></Link>
-                        
+                        <Link to={'/'}><button className="btn btn-primary">Return to Home</button></Link>
+
                     </div>
                 </div>
             </div>

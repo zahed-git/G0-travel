@@ -29,7 +29,7 @@ const Home = () => {
                     countrys && countrys.map((country, idx) => <Countrys key={idx} country={country}></Countrys>)
                 }
             </div>
-            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-2">
                 {
                    mongoSpots && mongoSpots.map((spot,idx)=><Spots key={idx} spot={spot}></Spots>) 
                 }

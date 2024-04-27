@@ -10,11 +10,13 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
     return (
 
         <div>
-            <h1>
-            <div className="mx-6 my-10">
+            <div className="mx-4 my-10 ">
             <Link to={`/detail/${_id}`}>
             <div className="card w-96 bg-base-100 shadow-xl">
-                <figure className="max-h-[500px] p-14"><img src={image} alt={tourists_spot_name} /></figure>
+                <div className="">
+                <figure className=" rounded-xl"><img src={image} alt={tourists_spot_name} /></figure>
+                </div>
+                
                 <div className="card-body">
                     <div className="card-actions justify-left mt-4">
                         <div className="badge badge-outline font-semibold text-green-500 p-3 bg-slate-200">{travel_Time}</div>
@@ -34,7 +36,7 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
             </div>
             </Link>
         </div>
-            </h1>
+            
         </div>
     )
 
