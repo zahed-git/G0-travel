@@ -18,6 +18,8 @@ import Spots from './component/Spots/Spots.jsx';
 import AddSpot from './component/AddSpot/AddSpot.jsx';
 import Detail from './component/Detail/Detail.jsx';
 import Update from './component/Update/Update.jsx';
+import Contact from './component/Contact/Contact.jsx';
+import Private from './assets/PrivateRout/Private.jsx';
 
 const router = createBrowserRouter([
   {
@@ -39,11 +41,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/addspot",
-        element: <AddSpot />
+        element: <Private><AddSpot /></Private> 
       },
       {
         path: "/detail/:_id",
         element: <Detail />
+      },
+      {
+        path: "/contact",
+        element: <Contact />
       },
       {
         path: "/update/:_id",

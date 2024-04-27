@@ -7,16 +7,17 @@ import toast from "react-hot-toast";
  
  const Nav=()=>{
     const {user,logOut}=useContext(AuthContext)
-
+console.log(user)
     const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
     {user &&
       <>
         <li><NavLink to='/user'>User Profile</NavLink></li>
         <li><NavLink to='/usersettings'>User Settings</NavLink></li>
+        <li><NavLink to='/addspot'>Add Location</NavLink></li>
       </>
     }
-    <li><NavLink to='/addspot'>Add Location</NavLink></li>
+    
     <li><NavLink to='/contact'>Contact us</NavLink></li>
   </>
 
