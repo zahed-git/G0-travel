@@ -1,62 +1,29 @@
-import swal from "sweetalert";
-import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
+import { useLoaderData } from "react-router-dom";
 
 
-const AddSpot =()=>{
-const handleAddData =(e)=>{
-e.preventDefault()
-const tourists_spot_name = e.target.name.value;
-const location = e.target.location.value;
-const seasonality = e.target.seasonality.value;
- const country_Name = e.target.country.value;
-const averageCost = e.target.cost.value;
-const travel_Time = e.target.travel_time.value;
-const description = e.target.description.value;
-const image =e.target.photo.value;
-const total_Visitors_Per_Year = e.target.totalVisitorsPerYear.value;
+const Update = () => {
+    const updateFor = useLoaderData({}) || {}
+    console.log(updateFor)
 
-
-const newPlace={image,tourists_spot_name,country_Name,location,description,averageCost,seasonality,travel_Time,total_Visitors_Per_Year}
-console.log(newPlace)
-
-if(!tourists_spot_name || !location ||!seasonality || !country_Name || !averageCost || !seasonality || !travel_Time || !total_Visitors_Per_Year){
-    return toast.error('Pls provide All datas')
+    const { image, tourists_spot_name, country_Name, location, description, averageCost, seasonality, travel_Time, total_Visitors_Per_Year } = updateFor || {}
+const handleUpdateData=()=>{
+    console.log('update')
 }
-e.target.reset();
-fetch ('http://localhost:5000/places',{
-    method:"POST",
-    headers:{
-        'content-type':'application/json'
-    },
-    body:JSON.stringify(newPlace)
-
-})
-.then(res=>res.json())
-.then(data=>{
-    console.log(data)
-    swal({
-        title: "TOURIST SPOT ADDED",
-        text: "sucessfully",
-        icon: "success",
-      });
-})
-}
-
-    return(
+    return (
         <div>
             <Helmet>
             <meta charSet="utf-8" />
-                <title>Add-Places</title>
+                <title>Update</title>
                 <link rel="canonical" href="http://mysite.com/example" />
             </Helmet>
 <section className="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20">
     <h1 className="text-xl font-bold text-white capitalize dark:text-white">ADD NEW TOURIST SPOT</h1>
-    <form onSubmit={handleAddData}>
+    <form onSubmit={handleUpdateData}>
         <div className="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
             <div>
                 <label className="text-white dark:text-gray-200" for="username">Name</label>
-                <input  name="name" type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
+                <input  name="name" defaultValue={tourists_spot_name} type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"/>
             </div>
 
             <div>
@@ -128,6 +95,5 @@ fetch ('http://localhost:5000/places',{
 
         </div>
     )
-
 }
-export default AddSpot
+export default Update;

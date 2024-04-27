@@ -5,9 +5,11 @@ const Countrys = ({ country }) => {
 
     const { id, country_name, img, category } = country || {}
     console.log(country_name)
+
+    
     return (
         <div className="mt-8">
-            <Link to={`/spots/${country_name}`}>
+            {/* <Link to={`/spots/${country_name}`}> */}
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <figure className="max-h-[500px] p-14"><img src={img} alt={country_name} /></figure>
                     <div className="card-body">
@@ -22,7 +24,7 @@ const Countrys = ({ country }) => {
                         </div>
                     </div>
                 </div>
-            </Link>
+            {/* </Link> */}
         </div>
     )
 

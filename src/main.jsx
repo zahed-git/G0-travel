@@ -16,6 +16,8 @@ import SingUp from './component/SingUp/SingUp.jsx';
 import Banner from './component/Banner/Banner.jsx';
 import Spots from './component/Spots/Spots.jsx';
 import AddSpot from './component/AddSpot/AddSpot.jsx';
+import Detail from './component/Detail/Detail.jsx';
+import Update from './component/Update/Update.jsx';
 
 const router = createBrowserRouter([
   {
@@ -25,7 +27,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>,
+        element: <Home/>
       },
       {
         path: "/login",
@@ -36,12 +38,17 @@ const router = createBrowserRouter([
         element: <SingUp/>,
       },
       {
-        path: "/spots/:country_name",
-        element: <Spots/>
-      },
-      {
         path: "/addspot",
         element: <AddSpot />
+      },
+      {
+        path: "/detail/:_id",
+        element: <Detail />
+      },
+      {
+        path: "/update/:_id",
+        element: <Update />,
+        loader: ({params})=> fetch(`http://localhost:5000/places/${params._id}`)
       },
     ],
   },
