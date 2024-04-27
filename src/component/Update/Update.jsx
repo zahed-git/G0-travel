@@ -1,14 +1,15 @@
 import { Helmet } from "react-helmet";
-import { useLoaderData } from "react-router-dom";
+import { Link,  useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Update = () => {
+    const navigate =useNavigate()
     const updateFor = useLoaderData({}) || {}
-    console.log(updateFor)
 
     const {_id, image, tourists_spot_name, country_Name, location, description, averageCost, seasonality, travel_Time, total_Visitors_Per_Year } = updateFor || {}
     
-    const handleUpdateData = () => {
+    const handleUpdateData = (e) => {
         e.preventDefault()
         const tourists_spot_name = e.target.name.value;
         const location = e.target.location.value;
@@ -21,30 +22,48 @@ const Update = () => {
         const total_Visitors_Per_Year = e.target.totalVisitorsPerYear.value;
 
 
-        const updatePlace = { image, tourists_spot_name, country_Name, location, description, averageCost, seasonality, travel_Time, total_Visitors_Per_Year }
-        console.log(updatePlace)
+        const updateLocation = { image, tourists_spot_name, country_Name, location, description, averageCost, seasonality, travel_Time, total_Visitors_Per_Year }
+        console.log(updateLocation)
+// ------------------
+Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, update it!"
+}).then((result) => {
+    if (result.isConfirmed) {
+// -----------------------
 
-        if (!tourists_spot_name || !location || !seasonality || !country_Name || !averageCost || !seasonality || !travel_Time || !total_Visitors_Per_Year) {
-            return toast.error('Pls provide All datas')
-        }
+
+
         e.target.reset();
         fetch(`http://localhost:5000/places/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify(updatePlace)
+            body: JSON.stringify(updateLocation)
 
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                swal({
-                    title: "TOURIST SPOT ADDED",
-                    text: "sucessfully",
-                    icon: "success",
-                });
+                if(data.modifiedCount>0){
+                    navigate('/')
+                    Swal.fire({
+                        title: "Updated!",
+                        text: "Location has been Updated.",
+                        icon: "success"
+                       
+
+                    })
+                }
+                
             })
+     } })
     }
     return (
         <div>
@@ -126,6 +145,11 @@ const Update = () => {
                     <div className="flex mt-6  text-xl p-2 justify-center rounded-xl bg-lime-400 btn">
                         <input type="submit" value="Update" />
                     </div>
+                    <div className="bg-slate-300 btn w-full my-2 text-xl font-bold text-green-400">
+    
+                    <Link to={'/'}><button>Return to Home</button></Link>
+                    </div>
+                    
                 </form>
             </section>
 
