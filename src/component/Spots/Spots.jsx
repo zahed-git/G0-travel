@@ -11,7 +11,7 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
 
         <div>
             <div className="max-w-[340px] max-h-[550px] my-12 mx-auto">
-            <Link to={`/detail/${_id}`}>
+           
             <div className="card w-full h-full bg-base-100 shadow-xl">
                 <div className="">
                 <figure className=" rounded-xl"><img src={image} alt={tourists_spot_name} /></figure>
@@ -32,8 +32,11 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
                         <div className="">{location}</div>
                     </div>
                 </div>
+                <div>
+                <Link ><button className="btn btn-primary">View Detail</button></Link>
+                </div>
             </div>
-            </Link>
+            
         </div>
             
         </div>
