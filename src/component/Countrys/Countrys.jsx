@@ -8,10 +8,10 @@ const Countrys = ({ country }) => {
 
     
     return (
-        <div className="mt-8">
+        <div className="mt-8 max-w-[340px] max-h-[350px] mx-auto">
             {/* <Link to={`/spots/${country_name}`}> */}
-                <div className="card w-96 bg-base-100 shadow-xl">
-                    <figure className="max-h-[500px] p-14"><img src={img} alt={country_name} /></figure>
+                <div className="card w-full h-full bg-base-100 shadow-xl">
+                    <figure className="max-h-[500px] "><img src={img} alt={country_name} /></figure>
                     <div className="card-body">
                         <h2 className="card-title mt-4">
                             {country_name}

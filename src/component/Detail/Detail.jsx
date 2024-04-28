@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../assets/Provider/AuthProvider";
 
 
 const Detail = () => {
     // const spotData=useLoaderData()
+    const { user } = useContext(AuthContext)
     const { _id } = useParams()
     const [spotData, setSpotData] = useState({})
     const navigate = useNavigate()
@@ -68,8 +70,10 @@ const Detail = () => {
 
     return (
         <div >
-            <div className="card lg:card-side bg-base-100 shadow-xl m-14">
-                <figure className='bg-slate-100 p-14 m-6 rounded-xl'><img className='max-w-[400px] max-h-[650px]' src={image} alt="Album" /></figure>
+            <div className="card sm:max-w-[330px] lg:max-w-[1150px] bg-base-100 shadow-xl my-14">
+                <figure className='bg-slate-100 rounded-xl py-6'>
+                    <img className='max-w-full rounded-xl' src={image} alt="Album" />
+                </figure>
                 <div className="card-body">
                     <h2 className="card-title">{tourists_spot_name}</h2>
                     <p>Country : {country_Name}</p>
@@ -112,19 +116,21 @@ const Detail = () => {
                                     </tr>
 
 
-                                    <tr>
-                                        <td>Visitors:</td>
 
-                                        <td>{total_Visitors_Per_Year}</td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                         {/* -------------- */}
                     </div>
                     <div className="card-actions justify-start">
-                        <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
-                        <Link to={`/update/${_id}`}><button className="btn btn-primary">Update</button></Link>
+                        {user &&
+                            <div>
+                                <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
+                               
+                                <Link to={`/update/${_id}`}><button className="btn btn-primary mx-2">Update</button></Link>
+                            </div>
+                        }
+
                         <Link to={'/'}><button className="btn btn-primary">Return to Home</button></Link>
 
                     </div>

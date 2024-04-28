@@ -10,9 +10,9 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
     return (
 
         <div>
-            <div className="mx-4 my-10 ">
+            <div className="max-w-[340px] max-h-[550px] my-12 mx-auto">
             <Link to={`/detail/${_id}`}>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-full h-full bg-base-100 shadow-xl">
                 <div className="">
                 <figure className=" rounded-xl"><img src={image} alt={tourists_spot_name} /></figure>
                 </div>
@@ -26,11 +26,10 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
                         {tourists_spot_name}
 
                     </h2>
-                    <p className="flex justify-start mt-4">Description : {seasonality}</p>
+                    <p className="flex justify-start mt-4">Best Time : {seasonality}</p>
                     <hr />
                     <div className="flex justify-between text-center mt-4">
                         <div className="">{location}</div>
-                        <div className="flex gap-2">{country_Name} <span className="mt-1"></span> </div>
                     </div>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 
 const Root=()=>{
     return(
-        <div >
+        <div style={{backgroundImage: 'url(https://i.postimg.cc/CKqRFbqv/toppng-com-colorful-confettis-png-clipart-images-3508x2540.png)'}}>
            
             <Nav></Nav>
              <div >
