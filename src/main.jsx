@@ -20,6 +20,10 @@ import Detail from './component/Detail/Detail.jsx';
 import Update from './component/Update/Update.jsx';
 import Contact from './component/Contact/Contact.jsx';
 import Private from './assets/PrivateRout/Private.jsx';
+import Mylist from './component/Mylist/Mylist.jsx';
+import User from './component/User/User.jsx';
+import UserSettings from './component/UserSettings/UserSettings.jsx';
+import Allspots from './component/Allspots/Allspots.jsx';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +36,10 @@ const router = createBrowserRouter([
         element: <Home/>
       },
       {
+        path: "/allspots",
+        element: <Allspots />
+      },
+      {
         path: "/login",
         element: <Login />,
       },
@@ -42,6 +50,18 @@ const router = createBrowserRouter([
       {
         path: "/addspot",
         element: <Private><AddSpot /></Private> 
+      },
+      {
+        path: "/mylist",
+        element: <Private><Mylist /></Private> 
+      },
+      {
+        path: "/user",
+        element: <Private><User /></Private> 
+      },
+      {
+        path: "/usersettings",
+        element: <Private><UserSettings /></Private> 
       },
       {
         path: "/detail/:_id",

@@ -1,7 +1,14 @@
 import {  Link, useParams } from "react-router-dom"
+import Aos from "aos"
+import { useEffect } from "react"
+import 'aos/dist/aos.css';
 
 
 const Spots = ({spot}) => {
+    useEffect(()=>{
+        Aos.init()
+            },[])
+
 const {_id,image,tourists_spot_name,country_Name,location,description,averageCost,seasonality,travel_Time,total_Visitors_Per_Year}=spot || {}
     const { country_name } = useParams()
     console.log(country_name)
@@ -9,8 +16,8 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
 
     return (
 
-        <div>
-            <div className="max-w-[340px] max-h-[550px] my-12 mx-auto">
+        <div data-aos="fade-up">
+            <div className="sm:max-w-[340px] max-w-[450px] max-h-[600px] my-12 mx-auto" >
            
             <div className="card w-full h-full bg-base-100 shadow-xl">
                 <div className="">
@@ -19,21 +26,22 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
                 
                 <div className="card-body">
                     <div className="card-actions justify-left mt-4">
-                        <div className="badge badge-outline font-semibold text-green-500 p-3 bg-slate-200">{travel_Time}</div>
+                        <div className="badge badge-outline font-semibold text-green-500 p-3 bg-slate-200">{travel_Time} tour</div>
+                        <br />
                         <div className="badge badge-outline font-semibold text-green-500 p-3 bg-slate-200">Visitor Countings :{total_Visitors_Per_Year}</div>
                     </div>
-                    <h2 className="card-title mt-4">
+                    <h2 className="card-title mt-4 text-fuchsia-500 text-bold">
                         {tourists_spot_name}
 
                     </h2>
-                    <p className="flex justify-start mt-4">Best Time : {seasonality}</p>
+                    <p className="flex justify-start mt-4"><span className="font-semibold text-emerald-500">{seasonality}</span> </p>
                     <hr />
                     <div className="flex justify-between text-center mt-4">
                         <div className="">{location}</div>
                     </div>
                 </div>
-                <div>
-                <Link ><button className="btn btn-primary">View Detail</button></Link>
+                <div className="flex justify-center mb-4">
+                <Link to={`/detail/${_id}`}><button className="btn btn-primary">View Detail</button></Link>
                 </div>
             </div>
             

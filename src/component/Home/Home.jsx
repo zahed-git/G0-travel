@@ -3,7 +3,7 @@ import Banner from "../Banner/Banner";
 import Countrys from "../Countrys/Countrys";
 import Spots from "../Spots/Spots";
 import { useLoaderData } from "react-router-dom";
-import Marquee from "react-fast-marquee";
+
 
 const Home = () => {
     const [countrys, setCountrys] = useState([])
@@ -25,14 +25,14 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <div >
-                <Marquee className="">
+            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-2">
+           
                 {
                     countrys && countrys.map((country, idx) => <Countrys key={idx} country={country}></Countrys>)
                 }
-                </Marquee>
-            </div>
-            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-2">
+               </div>
+        
+            <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-6">
                 {
                    mongoSpots && mongoSpots.map((spot,idx)=><Spots key={idx} spot={spot}></Spots>) 
                 }

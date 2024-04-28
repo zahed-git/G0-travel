@@ -10,11 +10,13 @@ import toast from "react-hot-toast";
 console.log(user)
     const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
+    <li><NavLink to='/allspots'>AllTourists Spot</NavLink></li>
     {user &&
       <>
+        <li><NavLink to='/addspot'>Add Spot</NavLink></li>
+        <li><NavLink to='/mylist'>My List</NavLink></li>
         <li><NavLink to='/user'>User Profile</NavLink></li>
         <li><NavLink to='/usersettings'>User Settings</NavLink></li>
-        <li><NavLink to='/addspot'>Add Location</NavLink></li>
       </>
     }
     
@@ -44,7 +46,7 @@ return (
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl"><span className="text-red-500">Apartment</span> Avenue</a>
+        <a className="btn btn-ghost text-xl"><span className="text-red-500">Trek</span>Tide</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
