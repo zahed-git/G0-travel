@@ -10,10 +10,10 @@ import toast from "react-hot-toast";
 console.log(user)
     const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/allspots'>AllTourists Spot</NavLink></li>
+    <li><NavLink to='/allspots'>All Tourists Spot</NavLink></li>
     {user &&
       <>
-        <li><NavLink to='/addspot'>Add Spot</NavLink></li>
+        <li><NavLink to='/addspot'>Add Spots</NavLink></li>
         <li><NavLink to='/mylist'>My List</NavLink></li>
         <li><NavLink to='/user'>User Profile</NavLink></li>
         <li><NavLink to='/usersettings'>User Settings</NavLink></li>
@@ -36,7 +36,7 @@ const handleLogOut = () => {
 
 
 return (
-<div className="navbar bg-base-100 fixed z-10">
+<div className="navbar bg-base-100 fixed z-20">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

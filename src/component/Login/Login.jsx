@@ -132,8 +132,8 @@ const Login = () => {
                             sucessMsg && <p>{sucessMsg}</p>
                         }
                     </div>
-                    <div>
-                        <p className="m-4">New to this Webside? please  <Link to="/singup">Register</Link></p>
+                    <div className="mb-6">
+                        <p className="m-4">New to this Webside? please  <Link to="/singup"><span className="text-xl font-bold">Register</span></Link></p>
                     </div>
                 </div>
 

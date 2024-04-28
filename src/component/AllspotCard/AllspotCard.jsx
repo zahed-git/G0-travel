@@ -1,21 +1,10 @@
-import {  Link, useParams } from "react-router-dom"
-import Aos from "aos"
-import { useEffect } from "react"
-import 'aos/dist/aos.css';
+import { Link } from "react-router-dom";
 
 
-const Spots = ({spot}) => {
-    useEffect(()=>{
-        Aos.init()
-            },[])
 
-const {_id,image,tourists_spot_name,country_Name,location,description,averageCost,seasonality,travel_Time,total_Visitors_Per_Year}=spot || {}
-    const { country_name } = useParams()
-    // console.log(country_name)
-
-
-    return (
-
+const AllspotCard =({spot})=>{
+    const {_id, image, tourists_spot_name, country_Name, location, description, averageCost, seasonality, travel_Time, total_Visitors_Per_Year } = spot || {}
+    return(
         <div data-aos="fade-up">
             <div className="sm:max-w-[340px] max-w-[450px] max-h-[600px] my-12 mx-auto" >
            
@@ -49,6 +38,5 @@ const {_id,image,tourists_spot_name,country_Name,location,description,averageCos
             
         </div>
     )
-
 }
-export default Spots
+export default AllspotCard;
