@@ -2,13 +2,15 @@ import { useContext } from "react";
 import { AuthContext } from "../../assets/Provider/AuthProvider";
 import { Link, NavLink } from "react-router-dom";
 import toast from "react-hot-toast";
+import 'react-tooltip/dist/react-tooltip.css'
+import { Tooltip } from 'react-tooltip'
 
- 
- 
- const Nav=()=>{
-    const {user,logOut}=useContext(AuthContext)
-console.log(user)
-    const links = <>
+
+
+const Nav = () => {
+  const { user, logOut } = useContext(AuthContext)
+  console.log(user)
+  const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/allspots'>All Tourists Spot</NavLink></li>
     {user &&
@@ -19,11 +21,11 @@ console.log(user)
         <li><NavLink to='/usersettings'>User Settings</NavLink></li>
       </>
     }
-    
+
     <li><NavLink to='/contact'>Contact us</NavLink></li>
   </>
 
-const handleLogOut = () => {
+  const handleLogOut = () => {
     logOut()
       .then(() => {
         console.log("Sign-out successfully.")
@@ -35,8 +37,8 @@ const handleLogOut = () => {
   }
 
 
-return (
-<div className="navbar bg-base-100 fixed z-20">
+  return (
+    <div className="navbar bg-base-100 fixed z-20">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -55,31 +57,33 @@ return (
       </div>
       <div className="navbar-end">
         {
-          user ? 
-          <>
-            <span className="text-sm font-bold">{user.photoURL ?
-              <>
-                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    {/* ---------------------------- */}
+          user ?
+            <>
+              <span className="text-sm font-bold">{user.photoURL ?
+                <>
+                  <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                    <div className="w-10 rounded-full">
+                      {/* ---------------------------- */}
 
-                    <div className="tooltip" data-tip="hello">
-                      <img alt="" src={user.photoURL} />
+                      <a data-tooltip-id="my-tooltip" data-tooltip-content="Hello world!">
+                        <img alt="" src={user.photoURL} />
+                      </a>
+
+
+                      {/* ---------------------------- */}
                     </div>
-                    {/* ---------------------------- */}
                   </div>
-                </div>
-              </>
-              : "Anonymous User"}</span>
-            <button className="btn btn-primary mx-2" onClick={handleLogOut}>LogOut</button>
-          </>
+                </>
+                : "Anonymous User"}</span>
+              <button className="btn btn-primary mx-2" onClick={handleLogOut}>LogOut</button>
+            </>
             :
             <Link to='/login'><button className="btn btn-primary mx-10">Sing-in</button></Link>
         }
 
       </div>
     </div>
-)
+  )
 }
 
 export default Nav;
