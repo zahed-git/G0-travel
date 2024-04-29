@@ -36,6 +36,20 @@ const SingUp = () => {
                 setMsg("Account created successfully")
                 navigate('/')
                 toast.success('Account created successfully')
+                // _______for mongo
+                const creationTimeAt = userCredential.usser?.metadata?.creatioonTime
+                const user = { email, creationTimeAt: creationTimeAt }
+                fetch('http://localhost:5000/user',{
+                    method:'POST',
+                    headers:{'content-type':'application/json'},
+                    body: JSON.stringify(user)
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    if(data.insertedId){
+                        console.log('user added to the database')
+                    }
+                })
             })
             .catch((error) => {
                 setMsg(error.message)
