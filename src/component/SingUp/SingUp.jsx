@@ -37,8 +37,8 @@ const SingUp = () => {
                 navigate('/')
                 toast.success('Account created successfully')
                 // _______for mongo
-                const creationTimeAt = userCredential.usser?.metadata?.creatioonTime
-                const user = { email, creationTimeAt: creationTimeAt }
+                const createdAt = userCredential.user?.metadata?.creatioonTime
+                const user = { email, createdAt: createdAt }
                 fetch('http://localhost:5000/user',{
                     method:'POST',
                     headers:{'content-type':'application/json'},
