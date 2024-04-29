@@ -9,6 +9,7 @@ const SingUp = () => {
     const { creatUser, googleLog, gitHubLog } = useContext(AuthContext)
     const navigate = useNavigate()
     const [msg, setMsg] = useState('')
+    const [user,setUser]=useState()
 
 
     const handleRegister = (e) => {
@@ -37,8 +38,10 @@ const SingUp = () => {
                 navigate('/')
                 toast.success('Account created successfully')
                 // _______for mongo
-                const createdAt = userCredential.user?.metadata?.creatioonTime
-                const user = { email, createdAt: createdAt }
+                const createdAt = userCredential.user?.metadata?.creationTime
+                const imagUrl=photo
+                const name=name
+                const user = { email,name:name, createdAt: createdAt, imagUrl:imagUrl }
                 fetch('http://localhost:5000/user',{
                     method:'POST',
                     headers:{'content-type':'application/json'},
@@ -50,6 +53,7 @@ const SingUp = () => {
                         console.log('user added to the database')
                     }
                 })
+                // -----------
             })
             .catch((error) => {
                 setMsg(error.message)
@@ -64,6 +68,25 @@ const SingUp = () => {
             .then((result) => {
                 navigate("/")
                 toast.success('Successfully Login')
+              console.log(result.user)
+               // _______for mongo
+               const createdAt = result.user?.metadata?.creationTime
+               const name= result.user?.displayName
+               const imagUrl=result.user?.photoURL
+               const email=result.user?.email
+               const user = { email,name:name, createdAt: createdAt ,imagUrl:imagUrl}
+               fetch('http://localhost:5000/user',{
+                   method:'POST',
+                   headers:{'content-type':'application/json'},
+                   body: JSON.stringify(user)
+               })
+               .then(res=>res.json())
+               .then(data=>{
+                   if(data.insertedId){
+                       console.log('user added to the database')
+                   }
+               })
+               // -----------
 
             })
             .catch((error) => {
@@ -77,6 +100,26 @@ const SingUp = () => {
             .then((result) => {
                 navigate('/')
                 toast.success('Successfully Login')
+                console.log(result)
+                 // _______for mongo
+
+                 const createdAt = result.user?.metadata?.creationTime
+                 const name= result.user?.displayName
+                 const imagUrl=result.user?.photoURL
+                 const email=result.user?.email
+                 const user = { email,name:name, createdAt: createdAt ,imagUrl:imagUrl}
+                 fetch('http://localhost:5000/user',{
+                     method:'POST',
+                     headers:{'content-type':'application/json'},
+                     body: JSON.stringify(user)
+                 })
+                 .then(res=>res.json())
+                 .then(data=>{
+                     if(data.insertedId){
+                         console.log('user added to the database')
+                     }
+                 })
+                 // -----------
             })
             .catch((error) => {
                 console.log(error)

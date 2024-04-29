@@ -15,6 +15,7 @@ const Login = () => {
     const [showPassword, setShowPassord] = useState(false)
     const [errorMsg, setErrorMsg] = useState('')
     const [sucessMsg, setSucessMsg] = useState(' ')
+    const [user,setUser]=useState()
     const emailRef = useRef()
 
 

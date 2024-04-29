@@ -9,7 +9,6 @@ import 'animate.css'
 
 const Home = () => {
     const [countrys, setCountrys] = useState([])
-    // const mongoSpots= useLoaderData() || []
     const [mongoSpots, setMongospots] = useState([])
     useEffect(() => {
         fetch('./countrys.json')
@@ -23,7 +22,7 @@ const Home = () => {
             .then(data => setMongospots(data))
 
     }, [])
-    console.log(countrys)
+    // console.log(countrys)
     return (
         <div>
             <Banner></Banner>
@@ -33,11 +32,15 @@ const Home = () => {
                 <p className="mb-6 sm:text-xs md:text-base font-semibold text-wrap text-slate-400">Travel with a Cause, the not-for-profit agency we <span className="text=xl font-bold text-red-400">Trake Tide </span> making a difference through travel.
                     Our mission is to save the environment by promoting sustainable tourism practices..</p>
             </div>
+            <div className="mx-auto text-center sm:max-w-[350px] lg:max-w-[800px] my-10">
+                <h1 className="sm:text-2xl  md:text-5xl font-semibold my-6 animate__animated animate__bounce">Choos Your destination by country</h1>
+               
+            </div>
 
             <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-2">
 
                 {
-                    countrys && countrys.map((country, idx) => <Countrys key={idx} country={country}></Countrys>)
+                    countrys && countrys.map((country, idx) => <Countrys key={idx} country={country} mongoSpots={mongoSpots} setMongospots={setMongospots}></Countrys>)
                 }
             </div>
             <div className="mx-auto text-center sm:max-w-[350px] lg:max-w-[800px] mt-20 mb-10">
@@ -61,6 +64,7 @@ const Home = () => {
             <div className="grid sm:grid-cols-1 lg:grid-cols-3 gap-2 my-6">
                 {
                     mongoSpots && mongoSpots.map((spot, idx) => <Spots key={idx} spot={spot}></Spots>)
+                   
                 }
             </div>
             {/* ----------------------------------------------------- */}

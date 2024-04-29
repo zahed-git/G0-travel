@@ -9,7 +9,7 @@ import { Tooltip } from 'react-tooltip'
 
 const Nav = () => {
   const { user, logOut } = useContext(AuthContext)
-  console.log(user)
+  // console.log(user)
   const links = <>
     <li><NavLink to='/'>Home</NavLink></li>
     <li><NavLink to='/allspots'>All Tourists Spot</NavLink></li>
@@ -65,7 +65,7 @@ const Nav = () => {
                     <div className="w-10 rounded-full">
                       {/* ---------------------------- */}
 
-                      <a data-tooltip-id="my-tooltip" data-tooltip-content="Hello world!">
+                      <a data-tooltip-id="my-tooltip" data-tooltip-content={user.displayName}>
                         <img alt="" src={user.photoURL} />
                       </a>
 
