@@ -2,9 +2,14 @@ import swal from "sweetalert";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../assets/Provider/AuthProvider";
 
 
 const AddSpot = () => {
+    const {user} = useContext(AuthContext)
+    const userEmail=user.email
+    console.log(userEmail)
 
     const handleAddData = (e) => {
         e.preventDefault()
@@ -19,7 +24,7 @@ const AddSpot = () => {
         const total_Visitors_Per_Year = e.target.totalVisitorsPerYear.value;
 
 
-        const newPlace = { image, tourists_spot_name, country_Name, location, description, averageCost, seasonality, travel_Time, total_Visitors_Per_Year }
+        const newPlace = { userEmail,image, tourists_spot_name, country_Name, location, description, averageCost, seasonality, travel_Time, total_Visitors_Per_Year }
         console.log(newPlace)
 
         if (!tourists_spot_name || !location || !seasonality || !country_Name || !averageCost || !seasonality || !travel_Time || !total_Visitors_Per_Year) {

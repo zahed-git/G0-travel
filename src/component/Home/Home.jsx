@@ -29,23 +29,7 @@ const Home = () => {
             })
 
     }, [])
-    //  -----------------
-    // useEffect(() => {
-    //     Events.scrollEvent.register('begin', (to, element) => {
-    //       console.log('begin', to, element);
-    //     });
-    // Events.scrollEvent.register('end', (to, element) => {
-    //     console.log('end', to, element);
-    //   });
-    //   scrollSpy.update();
-    //   return () => {
-    //     Events.scrollEvent.remove('begin');
-    //     Events.scrollEvent.remove('end');
-    //   };
-    // }, []);
-    // const scrollTo = () => {
-    //     scroll.scrollTo(100); 
-    //   };
+
     return (
         <div>
             <Banner></Banner>

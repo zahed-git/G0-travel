@@ -2,17 +2,19 @@ import { Helmet } from "react-helmet";
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../assets/Provider/AuthProvider";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData} from "react-router-dom";
 import Swal from "sweetalert2";
+import React from "react";
 
 const User = () => {
     const loadedUsers = useLoaderData()
     const [users, setUsers] = useState(loadedUsers)
-
     const { user } = useContext(AuthContext)
+    // console.log(user.email)
 
 
     const handleDelete = id => {
+        console.log(id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -46,6 +48,8 @@ const User = () => {
     })
 
     }
+  
+
     return (
         <div>
             <Helmet>
@@ -138,14 +142,15 @@ const User = () => {
                             </thead>
                             <tbody>
                                 {
-                                    users.map(user => <tr key={user._id}>
+                                    users.map(usser => <tr key={usser._id}>
                                         <th>1</th>
-                                        <td>{user.email}</td>
-                                        <td>{user.createdAt}</td>
-                                        <td>{user.lastLoggedAt}</td>
+                                        <td>{usser.email}</td>
+                                        <td>{usser.createdAt}</td>
+                                        <td>{usser.lastLoggedAt}</td>
                                         <td>
-                                            <button  onClick={() => handleDelete(user._id)} className="btn">X</button>
-                                            <Link to={`/userupdate/${user._id}`}><button className="btn btn-primary mx-2">Update</button></Link>
+                                            <button  onClick={() => handleDelete(usser._id)} className="btn">X</button>
+                                            
+                                                {/* <button onClick={() => handleUpdate(usser._id)} className="btn btn-primary mx-2">Update</button> */}
                                         </td>
                                     </tr>)
                                 }

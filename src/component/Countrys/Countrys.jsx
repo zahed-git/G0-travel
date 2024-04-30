@@ -12,8 +12,8 @@ const Countrys = ({ country, mongoSpots,setSearchdata }) => {
     // console.log(country_name)
 
     const handleSurch = country_name => {
-        console.log(country_name)
-        console.log(mongoSpots)
+        // console.log(country_name)
+        // console.log(mongoSpots)
         const searchfor = [...mongoSpots].filter(mongoSpots => mongoSpots.country_Name === country_name)
         setSearchdata(searchfor)
     }

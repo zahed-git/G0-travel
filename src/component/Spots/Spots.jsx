@@ -10,7 +10,7 @@ const Spots = ({spot}) => {
             },[])
 
 const {_id,image,tourists_spot_name,country_Name,location,description,averageCost,seasonality,travel_Time,total_Visitors_Per_Year}=spot || {}
-    const { country_name } = useParams()
+    // const { country_name } = useParams()
     // console.log(country_name)
 
 
