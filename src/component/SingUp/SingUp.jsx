@@ -42,7 +42,7 @@ const SingUp = () => {
                 const imagUrl=photo
                 const name=name
                 const user = { email,name:name, createdAt: createdAt, imagUrl:imagUrl }
-                fetch('http://localhost:5000/user',{
+                fetch('https://server-10-for-render.onrender.com/user',{
                     method:'POST',
                     headers:{'content-type':'application/json'},
                     body: JSON.stringify(user)
@@ -75,7 +75,7 @@ const SingUp = () => {
                const imagUrl=result.user?.photoURL
                const email=result.user?.email
                const user = { email,name:name, createdAt: createdAt ,imagUrl:imagUrl}
-               fetch('http://localhost:5000/user',{
+               fetch('https://server-10-for-render.onrender.com/user',{
                    method:'POST',
                    headers:{'content-type':'application/json'},
                    body: JSON.stringify(user)
@@ -108,7 +108,7 @@ const SingUp = () => {
                  const imagUrl=result.user?.photoURL
                  const email=result.user?.email
                  const user = { email,name:name, createdAt: createdAt ,imagUrl:imagUrl}
-                 fetch('http://localhost:5000/user',{
+                 fetch('https://server-10-for-render.onrender.com/user',{
                      method:'POST',
                      headers:{'content-type':'application/json'},
                      body: JSON.stringify(user)

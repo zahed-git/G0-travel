@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const Allspots =()=>{
 const [mongospots,setMongospots]=useState([])
     useEffect (()=>{
-        fetch('http://localhost:5000/places')
+        fetch('https://server-10-for-render.onrender.com/places')
         .then(res=>res.json())
         .then(data=> setMongospots(data))
 

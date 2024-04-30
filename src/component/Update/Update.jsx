@@ -40,7 +40,7 @@ Swal.fire({
 
 
         e.target.reset();
-        fetch(`http://localhost:5000/places/${_id}`, {
+        fetch(`https://server-10-for-render.onrender.com/places/${_id}`, {
             method: "PUT",
             headers: {
                 'content-type': 'application/json'

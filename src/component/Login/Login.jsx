@@ -42,7 +42,7 @@ const Login = () => {
                     email,
                     lastLoggedAt: userCredential.user?.metadata?.lastSignInTime
                 }
-                fetch('http://localhost:5000/user',{
+                fetch('https://server-10-for-render.onrender.com/user',{
                     method:'PATCH',
                     headers: {
                         'content-type': 'application/json'

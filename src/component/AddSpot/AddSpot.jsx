@@ -31,7 +31,7 @@ const AddSpot = () => {
             return toast.error('Pls provide All datas')
         }
         e.target.reset();
-        fetch('http://localhost:5000/places', {
+        fetch('https://server-10-for-render.onrender.com/places', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

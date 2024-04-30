@@ -27,7 +27,7 @@ const Detail = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/places/${_id}`, {
+                fetch(`https://server-10-for-render.onrender.com/places/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -56,7 +56,7 @@ const Detail = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const res = await fetch("http://localhost:5000/places")
+            const res = await fetch("https://server-10-for-render.onrender.com/places")
             const data = await res.json()
             // console.log(data)
             const singledata = data?.find(spotData => spotData._id == _id)

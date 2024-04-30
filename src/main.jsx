@@ -54,12 +54,12 @@ const router = createBrowserRouter([
       {
         path: "/mylist",
         element: <Private><Mylist /></Private> ,
-        loader:  ()=>fetch('http://localhost:5000/places')
+        loader:  ()=>fetch('https://server-10-for-render.onrender.com/places')
       },
       {
         path: "/user",
         element: <Private><User /></Private>, 
-        loader:  ()=>fetch(`http://localhost:5000/user`)
+        loader:  ()=>fetch(`https://server-10-for-render.onrender.com/user`)
       },
       {
         path: "/usersettings",
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
       {
         path: "/update/:_id",
         element: <Private><Update /></Private> ,
-        loader: ({params})=> fetch(`http://localhost:5000/places/${params._id}`)
+        loader: ({params})=> fetch(`https://server-10-for-render.onrender.com/places/${params._id}`)
       },
     ],
   },
