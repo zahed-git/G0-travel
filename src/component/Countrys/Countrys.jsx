@@ -3,7 +3,7 @@ import Aos from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 
-const Countrys = ({ country, mongoSpots, setMongospots }) => {
+const Countrys = ({ country, mongoSpots,setSearchdata }) => {
     useEffect(() => {
         Aos.init()
     }, [])
@@ -15,11 +15,11 @@ const Countrys = ({ country, mongoSpots, setMongospots }) => {
         console.log(country_name)
         console.log(mongoSpots)
         const searchfor = [...mongoSpots].filter(mongoSpots => mongoSpots.country_Name === country_name)
-        setMongospots(searchfor)
+        setSearchdata(searchfor)
     }
     return (
 
-        <div className="mt-8 p-8 rounded-2xl max-w-[200px] max-h-[350px] mx-auto bg-center" data-aos="fade-left " style={{ backgroundImage: `url(${img})` }}>
+        <div className="mt-8 p-8 rounded-2xl max-w-[200px] max-h-[350px] mx-auto bg-center" data-aos="flip-right" style={{ backgroundImage: `url(${img})` }}>
 
             <div className="card w-full h-full bg-base-100 shadow-xl bg-[hsla(0,0%,100%,0.35)] bg-[hsla(0,0%,100%,0.7)]" >
                 <div className="">

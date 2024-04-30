@@ -24,6 +24,7 @@ import Mylist from './component/Mylist/Mylist.jsx';
 import User from './component/User/User.jsx';
 import UserSettings from './component/UserSettings/UserSettings.jsx';
 import Allspots from './component/Allspots/Allspots.jsx';
+import UserUpdate from './component/UserUpdate/UserUpdate.jsx';
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,11 @@ const router = createBrowserRouter([
         path: "/user",
         element: <Private><User /></Private>, 
         loader:  ()=>fetch(`http://localhost:5000/user`)
+      },
+      {
+        path: "/userupdate/:id",
+        element: <Private><UserUpdate /></Private>, 
+        loader:  ({params})=>fetch(`http://localhost:5000/user/${params.id}`)
       },
       {
         path: "/usersettings",

@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet";
 import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
 import { useContext, useState } from "react";
 import { AuthContext } from "../../assets/Provider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const User = () => {
@@ -60,7 +60,7 @@ const User = () => {
 
                     <div className="bg-white relative shadow rounded-lg w-full  mx-auto">
                         <div className="flex justify-center">
-                            <img src={user.photoURL} alt="" class="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110" />
+                            <img src={user.photoURL} alt="" className="rounded-full mx-auto absolute -top-20 w-32 h-32 shadow-md border-4 border-white transition duration-200 transform hover:scale-110" />
                         </div>
 
                         <div className="mt-16">
@@ -144,8 +144,8 @@ const User = () => {
                                         <td>{user.createdAt}</td>
                                         <td>{user.lastLoggedAt}</td>
                                         <td>
-                                            <button
-                                                onClick={() => handleDelete(user._id)} className="btn">X</button>
+                                            <button  onClick={() => handleDelete(user._id)} className="btn">X</button>
+                                            <Link to={`/userupdate/${user._id}`}><button className="btn btn-primary mx-2">Update</button></Link>
                                         </td>
                                     </tr>)
                                 }

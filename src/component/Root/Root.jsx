@@ -1,16 +1,26 @@
 import { Outlet } from "react-router-dom";
 import Nav from "../Nav/Nav";
 import Footer from "../Footer/Footer";
+import { themeChange } from "theme-change";
+import { useEffect } from "react";
+import '../../them.css'
+
+
 
 const Root=()=>{
+    useEffect (() => {
+        themeChange(false)
+      }, [])
     return(
-        <div style={{backgroundImage: 'url(https://i.postimg.cc/CKqRFbqv/toppng-com-colorful-confettis-png-clipart-images-3508x2540.png)'}}>
+        <div className="bg-var(--my-color)" style={{backgroundImage: 'url(https://i.postimg.cc/CKqRFbqv/toppng-com-colorful-confettis-png-clipart-images-3508x2540.png)'}}>
            
             <Nav></Nav>
              <div >
+             
                 <p>outlet</p>
                 <div className="mt-10 flex">
                     <div className="mx-auto">
+                    <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"><input type="checkbox" className="toggle" checked /></button>
                         <Outlet></Outlet>
                         </div>
                 

@@ -23,6 +23,7 @@ const Nav = () => {
     }
 
     <li><NavLink to='/contact'>Contact us</NavLink></li>
+    <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"><input type="checkbox" className="toggle" checked /></button>
   </>
 
   const handleLogOut = () => {
