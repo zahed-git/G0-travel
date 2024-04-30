@@ -20,7 +20,7 @@ const Root=()=>{
                 <p>outlet</p>
                 <div className="mt-10 flex">
                     <div className="mx-auto">
-                    <button data-toggle-theme="dark,light" data-act-class="ACTIVECLASS"><input type="checkbox" className="toggle" checked /></button>
+                    
                         <Outlet></Outlet>
                         </div>
                 
